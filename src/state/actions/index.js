@@ -1,7 +1,7 @@
 import { createActions } from 'redux-actions';
-import { collectionsStructureActionTypes } from '../constants/index';
+import { collectionStructureActionTypes } from '../constants';
 
 export const { getAllCollections, postCollection } = createActions({
-  [collectionsStructureActionTypes.GET_ALL_COLLECTIONS]: data => ({ data }),
-  [collectionsStructureActionTypes.POST_COLLECTION]: data => ({ data })
+  [collectionStructureActionTypes.GET_ALL_COLLECTIONS]: data => ({ data }),
+  [collectionStructureActionTypes.POST_COLLECTION]: data => ({ data })
 });

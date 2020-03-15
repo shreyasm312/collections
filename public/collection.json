@@ -1,0 +1,28 @@
+{
+  "root": [
+    {
+      "type": "collection",
+      "collection_name": "1",
+      "container_node": [
+        {
+          "type": "collection",
+          "collection_name": "1.1",
+          "leaf_node": [
+            {
+              "type": "jpeg",
+              "data": ""
+            },
+            {
+              "type": "WYSIWYG",
+              "data": "LOREM epsum"
+            }
+          ]
+        },
+        {
+          "type": "collection",
+          "collection_name": "1.2"
+        }
+      ]
+    }
+  ]
+}

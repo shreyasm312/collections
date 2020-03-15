@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import Header from '../layouts/header';
+import { getAllCollections } from '../../state/actions';
+import { selectGetAllCollections } from '../../state/selectors';
 
 export class Dashboard extends Component {
   state = {
-    menu: false
+    menu: true,
+    rootCollections: []
   };
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getAllCollections());
+  }
   render() {
     return (
       <div>
-        <Header options={() => this.setState({ menu: !this.state.menu })} />
+        <Header
+          options={menu =>
+            this.setState({
+              menu
+            })
+          }
+        />
         <div>
           <div
             className={
               this.state.menu
-                ? 'w-1/6 bg-gray-200 h-screen'
-                : 'w-1/6 bg-gray-200 h-screen hidden'
+                ? 'w-1/6 border-r p-2 h-screen'
+                : 'w-1/6 p-2 h-screen hidden'
             }
           ></div>
           <div className="w-5/6"></div>
@@ -23,5 +38,7 @@ export class Dashboard extends Component {
     );
   }
 }
-
-export default Dashboard;
+const mapStateToProps = createStructuredSelector({
+  getAllCollections: selectGetAllCollections
+});
+export default connect(mapStateToProps, null)(Dashboard);
