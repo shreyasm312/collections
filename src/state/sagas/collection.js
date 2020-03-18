@@ -3,9 +3,9 @@ import { collectionStructureActionTypes } from '../constants';
 import { saga } from '../../utils/saga';
 import { getAllCollectionsAPI, postCollectionAPI } from '../api';
 
-const getAllCollections = () =>
+const getAllCollections = ({ payload }) =>
   saga(
-    getAllCollectionsAPI,
+    getAllCollectionsAPI(payload),
     collectionStructureActionTypes.GET_ALL_COLLECTIONS
   );
 const postCollection = ({ payload }) =>

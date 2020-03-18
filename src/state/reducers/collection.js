@@ -28,7 +28,7 @@ export default {
         draft,
         { payload }
       ) => {
-        draft.getAllCollections.data = payload ? payload.data : {};
+        draft.getAllCollections.data = payload ? payload : {};
         draft.getAllCollections.status = STATUS.SUCCESS;
         draft.getAllCollections.loading = false;
       },

@@ -5,14 +5,24 @@ import Header from '../layouts/header';
 import { getAllCollections } from '../../state/actions';
 import { selectGetAllCollections } from '../../state/selectors';
 
+const base = 'collection.json';
+
 export class Dashboard extends Component {
   state = {
     menu: true,
     rootCollections: []
   };
   componentDidMount() {
+    this.init();
     const { dispatch } = this.props;
-    dispatch(getAllCollections());
+    dispatch(getAllCollections('collection'));
+  }
+  init() {
+    fetch(base).then(response =>
+      response
+        .json()
+        .then(data => localStorage.setItem('collection', JSON.stringify(data)))
+    );
   }
   render() {
     return (

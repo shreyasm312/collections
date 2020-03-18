@@ -1,8 +1,8 @@
 ///GETAPI
 export const getAPI = key => {
   try {
-    let response = localStorage.getItem(key);
-    return response.data;
+    let response = JSON.parse(localStorage.getItem(key));
+    return response;
   } catch (error) {
     throw new error(error);
   }
